@@ -3,12 +3,14 @@ import helper.SortTestHelper;
 public class SelectionSort{
 
     public static void main(String args[]){
-        Integer[] arr = SortTestHelper.generateRandomArray(100, 0, 100);
-        selectionSort(arr, 100);
-        SortTestHelper.printArray(arr);
+        int n = 100000;
+        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, n);
+        SortTestHelper.testSort("SelectionSort", arr);
+
     }
 
-    private static void selectionSort(Comparable arr[], int n){
+    public static void selectionSort(Comparable arr[]){
+        int n = arr.length;
         for(int i = 0; i < n; i++){
             //find min value in [i, n)
             int minIndex = i;

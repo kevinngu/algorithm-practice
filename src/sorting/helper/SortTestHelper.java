@@ -1,5 +1,7 @@
 package helper;
 
+import java.lang.reflect.Method;
+
 /**
  * Created by OrangeKevin on 7/30/17.
  */
@@ -24,4 +26,33 @@ public class SortTestHelper {
         }
         System.out.println();
     }
+
+    public static boolean isSorted(Comparable[] arr){
+        for(int i=0; i<arr.length - 1; i++){
+            if(arr[i].compareTo(arr[i+1]) > 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void testSort(String sortClassName, Comparable[] arr){
+        try{
+            Class sortClass = Class.forName(sortClassName);
+            Method sortMethod = sortClass.getMethod("selectionSort", new Class[]{Comparable[].class});
+            Object[] params = new Object[]{arr};
+            long startTime = System.currentTimeMillis();
+            sortMethod.invoke(null, params);
+            long endTime = System.currentTimeMillis();
+            if(isSorted(arr))
+                System.out.println("is sort");
+            else
+                System.out.println("is not sort");
+            System.out.println(sortClass.getSimpleName() + " : " + (endTime - startTime) + " ms");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
 }
