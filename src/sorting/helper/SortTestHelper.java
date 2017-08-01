@@ -39,8 +39,12 @@ public class SortTestHelper {
     public static void testSort(String sortClassName, Comparable[] arr){
         try{
             Class sortClass = Class.forName(sortClassName);
-            Method sortMethod = sortClass.getMethod("selectionSort", new Class[]{Comparable[].class});
+            Method sortMethod = sortClass.getMethod("sort", new Class[]{Comparable[].class});
             Object[] params = new Object[]{arr};
+            for(int i =0; i<arr.length; i++){
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
             long startTime = System.currentTimeMillis();
             sortMethod.invoke(null, params);
             long endTime = System.currentTimeMillis();
@@ -48,11 +52,23 @@ public class SortTestHelper {
                 System.out.println("is sort");
             else
                 System.out.println("is not sort");
+            for(int i =0; i<arr.length; i++){
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
             System.out.println(sortClass.getSimpleName() + " : " + (endTime - startTime) + " ms");
         } catch (Exception e){
             e.printStackTrace();
         }
 
+    }
+
+    public static Integer[] copyArr(Integer[] arr){
+        Integer[] copyArr = new Integer[arr.length];
+        for(int i=0; i<arr.length; i++){
+            copyArr[i] = arr[i];
+        }
+        return copyArr;
     }
 
 }

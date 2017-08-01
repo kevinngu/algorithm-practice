@@ -1,16 +1,16 @@
-public class SelectionSort{
+public class InsertionSort {
 
     public static void sort(Comparable arr[]){
         int n = arr.length;
-        for(int i = 0; i < n; i++){
-            //find min value in [i, n)
-            int minIndex = i;
-            for(int j = i+1; j<n; j++){
-                if(arr[j].compareTo(arr[minIndex]) < 0){
-                    minIndex = j;
+        for(int i = 1; i < n; i++){
+            for(int j = i; j>0; j--){
+                if(arr[j].compareTo(arr[j-1]) < 0){
+                    swap(arr,j,j-1);
+                } else {
+                    break;
                 }
             }
-            swap(arr,i,minIndex);
+
         }
     }
 
