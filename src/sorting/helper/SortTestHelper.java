@@ -41,10 +41,6 @@ public class SortTestHelper {
             Class sortClass = Class.forName(sortClassName);
             Method sortMethod = sortClass.getMethod("sort", new Class[]{Comparable[].class});
             Object[] params = new Object[]{arr};
-            for(int i =0; i<arr.length; i++){
-                System.out.print(arr[i] + " ");
-            }
-            System.out.println();
             long startTime = System.currentTimeMillis();
             sortMethod.invoke(null, params);
             long endTime = System.currentTimeMillis();
@@ -52,10 +48,6 @@ public class SortTestHelper {
                 System.out.println("is sort");
             else
                 System.out.println("is not sort");
-            for(int i =0; i<arr.length; i++){
-                System.out.print(arr[i] + " ");
-            }
-            System.out.println();
             System.out.println(sortClass.getSimpleName() + " : " + (endTime - startTime) + " ms");
         } catch (Exception e){
             e.printStackTrace();
