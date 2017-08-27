@@ -16,6 +16,7 @@ public class MergeSort {
         if(l >= r){
             return;
         } else {
+            //递归使用归并排序, 将数组不断对半分并进行排序
             int mid = (l+r) / 2;
             mergeSort(arr, l, mid);
             mergeSort(arr, mid + 1, r);
@@ -29,7 +30,7 @@ public class MergeSort {
         int j = mid + 1;
         for(int k = l; k<=r; k++){
             if(i > mid){ //左半部分处理完毕
-                arr[k] = aux[j-l];
+                arr[k] = aux[j-l]; //减偏移量
                 j++;
             } else if(j > r){ //右半部分处理完毕
                 arr[k] = aux[i-l];

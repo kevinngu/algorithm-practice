@@ -45,9 +45,9 @@ public class SortTestHelper {
             sortMethod.invoke(null, params);
             long endTime = System.currentTimeMillis();
             if(isSorted(arr))
-                System.out.println("is sort");
+                System.out.println("it's sort");
             else
-                System.out.println("is not sort");
+                System.out.println("isn't sort");
             System.out.println(sortClass.getSimpleName() + " : " + (endTime - startTime) + " ms");
         } catch (Exception e){
             e.printStackTrace();
