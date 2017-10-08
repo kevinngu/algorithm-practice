@@ -7,11 +7,12 @@ public class TestEntry {
 
 
     public static void main(String args[]){
-        int n = 50000;
+        int n = 100000;
         Integer[] arr = SortTestHelper.generateRandomArray(n, 0, n);
         Integer[] copyArr = SortTestHelper.copyArr(arr);
         SortTestHelper.testSort("SelectionSort", arr);
         SortTestHelper.testSort("InsertionSort", copyArr);
         SortTestHelper.testSort("MergeSort", copyArr);
+        SortTestHelper.testSort("MergeSortBottomUp", copyArr);
     }
 }
